@@ -23,7 +23,7 @@ PR Voyager is an automated workflow powered by GitHub Actions that streamlines t
 
 ### Example workflow
 
-```
+```yaml
 name: PR Release
 
 on:
