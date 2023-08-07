@@ -6,11 +6,11 @@ PR Voyager is an automated workflow powered by GitHub Actions that streamlines t
 
 ## Features
 
-- Seamlessly integrates with your PR workflow on GitHub.
-- Automatically publishes npm packages with version updates tied to your PR.
-- Ensures that every code change is released as part of the PR process.
-- Simplifies local testing by providing clear instructions for installing and using the updated packages.
-- Enhances collaboration by enabling team members to easily test and review PR changes using the latest package versions.
+- :link: Seamlessly integrates with your PR workflow on GitHub.
+- :rocket: Automatically publishes npm packages with version updates tied to your PR.
+- :white_check_mark: Ensures that every code change is released as part of the PR process.
+- :computer: Simplifies local testing by providing clear instructions for installing and using the updated packages.
+- :raising_hand: Enhances collaboration by enabling team members to easily test and review PR changes using the latest package versions.
 
 ## Usage
 
