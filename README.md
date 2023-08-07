@@ -2,6 +2,8 @@
 
 PR Voyager is an automated workflow powered by GitHub Actions that streamlines the process of npm package publishing for each Pull Request (PR). It ensures that every code change in your PR is accompanied by a new npm package version, facilitating smooth integration and testing of your updates.
 
+![PR Voyager's comment](https://github.com/kotarella1110/pr-voyager/assets/12913947/4508d3e4-4cba-48aa-ade0-e58a68a6f495)
+
 ## Features
 
 - Seamlessly integrates with your PR workflow on GitHub.
