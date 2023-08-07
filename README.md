@@ -54,7 +54,7 @@ jobs:
         run: pnpm build
 
       - name: Publish to npm
-        uses: kotarella1110/pr-voyager@0
+        uses: kotarella1110/pr-voyager@v0
         with:
           publish: pnpm publish -r
         env:
