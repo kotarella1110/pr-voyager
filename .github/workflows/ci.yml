@@ -1,0 +1,15 @@
+name: CI
+on:
+  push:
+jobs:
+  static:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [16]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/setup-pnpm
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: pnpm check

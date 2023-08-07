@@ -1,11 +1,13 @@
-name: 'Your name here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: "PR-Voyager"
+description: "Publish npm packages for each Pull Request"
+author: "kotarella1110"
 inputs:
-  milliseconds: # change this
+  publish:
+    description: "The command to use to build and publish packages"
     required: true
-    description: 'input description here'
-    default: 'default value if applicable'
+  cwd:
+    description: Sets the cwd for the node process. Default to `process.cwd()`
+    required: false
 runs:
-  using: 'node16'
-  main: 'dist/index.js'
+  using: "node16"
+  main: "dist/index.js"
