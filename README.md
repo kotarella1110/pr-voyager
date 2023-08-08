@@ -12,6 +12,18 @@ PR Voyager is an automated workflow powered by GitHub Actions that streamlines t
 - Simplifies local testing by providing clear instructions for installing and using the updated packages.
 - Enhances collaboration by enabling team members to easily test and review PR changes using the latest package versions.
 
+## Package Versioning
+
+For each PR, the package version in your `package.json` is automatically updated in the following format: `1.0.0-pr123.366b952`, where:
+
+- `1.0.0` represents the current version.
+- `123` is the PR number.
+- `366b952` is the first 7 characters of the commit SHA.
+
+The package is also published with a tag named `pr123`, where `123` is the PR number.
+
+This versioning and tagging scheme ensures that each PR receives a unique package version and allows for easy identification and testing of changes.
+
 ## Usage
 
 ### Inputs
