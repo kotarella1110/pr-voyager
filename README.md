@@ -45,30 +45,31 @@ jobs:
   pr-release:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
+      - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Install pnpm
-        uses: pnpm/action-setup@v2
-        with:
-          version: 8
+      # Uncomment this if you're using pnpm
+      # - name: Install pnpm
+      #   uses: pnpm/action-setup@v2
+      #   with:
+      #     version: 8
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: pnpm
+          cache: npm # or pnpm
 
       - name: Install Dependencies
-        run: pnpm install
+        run: npm ci # or pnpm install
 
       - name: Build
-        run: pnpm build
+        run: npm build # or pnpm build
 
-      - name: Publish to npm
+      - name: Publish
         uses: kotarella1110/pr-voyager@v0
         with:
-          publish: pnpm publish -r
+          publish: npm publish # or pnpm publish -r
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -81,15 +82,16 @@ However, if you already have an `.npmrc` file in your repository, the GitHub Act
 For instance, if you want to manually create the `.npmrc` file before running the GitHub Action, you can add a step like this:
 
 ```diff
-+ - name: Creating .npmrc
++ - name: Create .npmrc
 +   run: |
 +     echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc
 +   env:
 +     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-  - name: Publish to npm
++
+  - name: Publish
     uses: kotarella1110/pr-voyager
     with:
-      publish: pnpm publish -r
+      publish: npm publish
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 -     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
