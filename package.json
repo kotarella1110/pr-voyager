@@ -1,6 +1,6 @@
 {
   "name": "pr-voyager",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "dist/index.js",
   "scripts": {
     "build": "rimraf dist && ncc build src/index.ts --source-map --minify",
