@@ -96,3 +96,17 @@ For instance, if you want to manually create the `.npmrc` file before running th
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 -     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 ```
+
+## PR Voyager vs CodeSandbox CI
+
+PR Voyager and [CodeSandbox CI](https://codesandbox.io/docs/learn/sandboxes/ci) offer distinct approaches for automating and managing your package testing and publishing workflows. Here's a summary of their key differences:
+
+|                      | PR Voyager                                                                                   | CodeSandbox CI                                                                                                                                                                  |
+| -------------------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Platform             | GitHub Action                                                                                | GitHub App                                                                                                                                                                      |
+| Support Repositories | Public and private repositories                                                              | Public repositories only                                                                                                                                                        |
+| Configuration        | Created via a `.github/workflows/xxx.yml` workflow file. Flexible and customizable workflows | Configured via a `.codesandbox/ci.json` configuration file, enabling easy setup. However, it has limited flexibility and lacks the ability to specify package manager versions. |
+| Publishing           | Publishes to npm with tagged name                                                            | Publishes to CodeSandbox CI registry. Does not publish to npm .                                                                                                                 |
+| Integration          | Allows immediate local testing of the library.                                               | Integrates with CodeSandbox for immediate library testing, both locally and on CodeSandbox.                                                                                     |
+
+Ultimately, both tools offer valuable contributions to your development workflow, allowing you to choose the one that best aligns with your priorities and preferences. Whether you prioritize flexibility and customization or seamless integration and simplicity, these solutions can enhance your package management process and contribute to more efficient and effective development.
