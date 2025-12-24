@@ -97,6 +97,39 @@ For instance, if you want to manually create the `.npmrc` file before running th
 -     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 ```
 
+### Using npm Trusted Publishers
+
+PR Voyager supports [npm trusted publishers](https://docs.npmjs.com/trusted-publishers/), which allows you to publish packages without managing long-lived access tokens. This uses OpenID Connect (OIDC) to authenticate with npm directly from GitHub Actions.
+
+To use trusted publishers, add the `id-token: write` permission and omit the `NPM_TOKEN`:
+
+```diff
++ permissions:
++   contents: read
++   pull-requests: write
++   id-token: write # Required for npm trusted publishers
++
++ # ...
++
+  - name: Publish
+    uses: kotarella1110/pr-voyager@v0
+    with:
+      publish: npm publish
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+-     NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+```
+
+**Setup steps:**
+
+1. Configure trusted publishing for your package on npm by following the [npm trusted publishers documentation](https://docs.npmjs.com/trusted-publishers/)
+2. Add `id-token: write` to your workflow permissions
+3. Remove the `NPM_TOKEN` from your workflow environment variables
+
+GitHub Actions will automatically authenticate using OIDC tokens.
+
+**Note:** If you're not using trusted publishers, you still need to provide the `NPM_TOKEN` environment variable as shown in the basic usage example.
+
 ## PR Voyager vs CodeSandbox CI
 
 PR Voyager and [CodeSandbox CI](https://codesandbox.io/docs/learn/sandboxes/ci) offer distinct approaches for automating and managing your package testing and publishing workflows. Here's a summary of their key differences:
