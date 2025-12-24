@@ -46,18 +46,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v6
 
       # Uncomment this if you're using pnpm
       # - name: Install pnpm
-      #   uses: pnpm/action-setup@v2
+      #   uses: pnpm/action-setup@v4
       #   with:
-      #     version: 8
+      #     version: 10
 
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
-          node-version: 16
+          node-version: 24
           cache: npm # or pnpm
 
       - name: Install Dependencies
